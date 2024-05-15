@@ -35,8 +35,8 @@ sudo apt update
 sudo apt install git -y
 git clone https://github.com/un4ckn0wl3z/stable_pi_pwn.git
 cd stable_pi_pwn
-sudo cp -r stable_pi_pwn /boot/firmware/
-cd /boot/firmware/stable_pi_pwn
+sudo cp -r PPPwn /boot/firmware/
+cd /boot/firmware/PPPwn
 sudo chmod 777 *
 sudo bash install.sh
 ```
