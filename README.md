@@ -38,7 +38,7 @@ sudo apt update
 sudo apt install git -y
 sudo rm -r PI-Pwn
 sudo systemctl stop pipwn
-git clone https://github.com/stooged/PI-Pwn
+git clone https://github.com/un4ckn0wl3z/stable_pi_pwn.git
 sudo mkdir /boot/firmware/
 cd PI-Pwn
 sudo cp -r PPPwn /boot/firmware/
