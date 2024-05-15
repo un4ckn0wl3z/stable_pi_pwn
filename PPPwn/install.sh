@@ -199,41 +199,7 @@ break;;
 * ) echo -e '\033[31mPlease answer Y or N\033[0m';;
 esac
 done
-PITYP=$(tr -d '\0' </proc/device-tree/model) 
-if [[ $PITYP == *"Raspberry Pi 4"* ]] || [[ $PITYP == *"Raspberry Pi 5"* ]] ;then
-while true; do
-read -p "$(printf '\r\n\r\n\033[36mDo you want the pi to act as a flash drive to the console\r\n\r\n\033[36m(Y|N)?: \033[0m')" vusb
-case $vusb in
-[Yy]* ) 
-if [ ! -f $HOME/PPPwn/pwndev ]; then
-sudo mkdir $HOME/PPPwn
-sudo dd if=/dev/zero of=$HOME/PPPwn/pwndev bs=4096 count=65535 
-sudo mkdosfs $HOME/PPPwn/pwndev -F 32  
-echo 'dtoverlay=dwc2' | sudo tee -a /boot/firmware/config.txt
-sudo mkdir /media/pwndev
-sudo mount -o loop $HOME/PPPwn/pwndev /media/pwndev
-sudo cp "$HOME/PI-Pwn/USB Drive/goldhen.bin" /media/pwndev
-sudo umount /media/pwndev
-UDEV=$(sudo blkid | grep '^/dev/sd' | cut -f1 -d':')
-if [[ $UDEV == *"dev/sd"* ]] ;then
-sudo mount -o loop $UDEV /media/pwndev
-sudo cp "$HOME/PI-Pwn/USB Drive/goldhen.bin" /media/pwndev
-sudo umount /media/pwndev 
-fi
-fi
-echo -e '\033[32mThe pi will mount as a drive and goldhen.bin has been placed in the drive\n\033[33mYou must plug the pi into the console usb port using the usb-c of the pi\033[0m'
-VUSB="true"
-break;;
-[Nn]* ) 
-echo -e '\033[35mThe pi will not mount as a drive\033[0m'
 VUSB="false"
-break;;
-* ) echo -e '\033[31mPlease answer Y or N\033[0m';;
-esac
-done
-else
-VUSB="false"
-fi
 echo '#!/bin/bash
 INTERFACE="'$IFCE'" 
 FIRMWAREVERSION="'$FWV'" 
