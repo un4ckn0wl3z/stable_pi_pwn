@@ -4,9 +4,6 @@ This is a script to setup <a href=https://github.com/TheOfficialFloW/PPPwn>PPPwn
 It also supports internet access after pwn and access to ftp, klog and binloader servers launched by goldhen.<br>
 A dns blocker is also installed and used to prevent updates.<br>
 
-The <a href=https://www.raspberrypi.com/products/raspberry-pi-4-model-b/>Raspberry Pi 4</a> and <a href=https://www.raspberrypi.com/products/raspberry-pi-5/>Raspberry Pi 5</a> can act as a virtual flash drive to the console if the pi is plugged into the console usb port removing the need for a flash drive to load payloads.<br>
-
-
 
 <br>
 
@@ -83,14 +80,6 @@ Your pi must be also connected to your home network via wifi or a second etherne
 To connect to the servers from your pc just connect to the raspberry pi ip on your network and all requests will be forwarded to the console<br>
 
 For ftp make sure you set the transfer mode on your ftp client software to `Active` not passive.<br>
-
-
-## Flash/Virtual drive
-
-You can put a usb flash drive in the pi and that will be mounted to the console, if you have no drive in the pi a virtual drive will be mounted.<br>
-To use this feature you must plug the raspberry pi 4/5 into the consoles usb port using the usb-c connection on the pi.<br>
-If you have power issues you can use a usb Y cable to inject power from another source but in my tests both pi variants ran using a single cable.<br>
-
 
 
 ## What it does
